@@ -40,7 +40,7 @@ function CourseCard({ course }) {
 
 	for(const section of course.sections) {
 		if(section.section.endsWith("L")) labSections.push(section);
-		if(section.section.endsWith("D")) discussionSections.push(section);
+		else if(section.section.endsWith("D")) discussionSections.push(section);
 		else classSections.push(section);
 	}
 
@@ -54,7 +54,7 @@ function CourseCard({ course }) {
 		<p className="text-gray-600 dark:text-gray-300 mb-8">Competencies: {competencies.length ? competencies.join(", ") : "None"}</p>
 
 		<div className="flex justify-start mb-1">
-			<span className="text-gray-800 dark:text-gray-200">{classSections.length} sections</span>
+			<span className="text-gray-800 dark:text-gray-200">{classSections.length} lecture sections ({labSections.length} labs, {discussionSections.length} discussions)</span>
 		</div>
 
 
